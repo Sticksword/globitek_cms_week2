@@ -1,6 +1,6 @@
-<?php require_once('../../../private/initialize.php'); ?>
-
 <?php
+require_once('../../../private/initialize.php');
+
 if(!isset($_GET['id'])) {
   redirect_to('index.php');
 }
@@ -14,7 +14,7 @@ $state = db_fetch_assoc($state_result);
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="#add_a_url">Back to States List</a><br />
+  <a href="index.php">Back to States List</a><br />
 
   <h1>State: <?php echo $state['name']; ?></h1>
 
@@ -33,31 +33,31 @@ $state = db_fetch_assoc($state_result);
     echo "<td>" . $state['country_id'] . "</td>";
     echo "</tr>";
     echo "</table>";
-?>
-    <br />
-    <a href="#add_a_url">Edit</a><br />
-    <hr />
+  ?>
+  <br />
+  <a href="edit.php?id=<?php echo $state['id']; ?>">Edit</a><br />
+  <hr />
 
-    <h2>Territories</h2>
-    <br />
-    <a href="#add_a_url">Add a Territory</a><br />
+  <h2>Territories</h2>
+  <br />
+  <a href="../territories/new.php?state_id=<?php echo $state['id']; ?>">Add a Territory</a><br />
 
 <?php
-    $territory_result = find_territories_for_state_id($state['id']);
+  $territory_result = find_territories_for_state_id($state['id']);
 
-    echo "<ul id=\"territories\">";
-    while($territory = db_fetch_assoc($territory_result)) {
-      echo "<li>";
-      echo "<a href=\"#add_a_url\">";
-      echo $territory['name'];
-      echo "</a>";
-      echo "</li>";
-    } // end while $territory
-    db_free_result($territory_result);
-    echo "</ul>"; // #territories
+  echo "<ul id=\"territories\">";
+  while($territory = db_fetch_assoc($territory_result)) {
+    echo "<li>";
+    echo "<a href=\"../territories/show.php?id=" . $territory['id'] . "\">";
+    echo $territory['name'];
+    echo "</a>";
+    echo "</li>";
+  } // end while $territory
+  db_free_result($territory_result);
+  echo "</ul>"; // #territories
 
-    db_free_result($state_result);
-  ?>
+  db_free_result($state_result);
+?>
 
 </div>
 

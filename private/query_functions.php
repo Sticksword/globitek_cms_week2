@@ -60,7 +60,13 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+    $sql = "INSERT INTO states ";
+    $sql .= "(name, code, country_id) ";
+    $sql .= "VALUES (";
+    $sql .= "'" . $state['name'] . "',";
+    $sql .= "'" . $state['code'] . "',";
+    $sql .= "'" . $state['country_id'] . "'";
+    $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -84,7 +90,12 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+    $sql = "UPDATE states SET ";
+    $sql .= "name='" . $state['name'] . "', ";
+    $sql .= "code='" . $state['code'] . "', ";
+    $sql .= "country_id='" . $state['country_id'] . "' ";
+    $sql .= "WHERE id='" . $state['id'] . "' ";
+    $sql .= "LIMIT 1;";
     // For update_state statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -179,9 +190,10 @@
     $sql = "UPDATE territories SET ";
     $sql .= "name='" . $territory['name'] . "', ";
     $sql .= "state_id='" . $territory['state_id'] . "', ";
-    $sql .= "position='" . $territory['position'] . "', ";
+    $sql .= "position='" . $territory['position'] . "' ";
     $sql .= "WHERE id='" . $territory['id'] . "' ";
     $sql .= "LIMIT 1;";
+    error_log($sql);
     // For update_territory statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
