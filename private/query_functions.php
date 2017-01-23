@@ -45,7 +45,19 @@
   }
 
   function validate_state($state, $errors=array()) {
-    // TODO add validations
+    global $db;
+    foreach ($state as $key => $value) {
+      if (is_blank($value)) {
+        $errors[] = 'Please enter your ' . $key . '.';
+      } elseif (!has_length($value, array(1, 255))) {
+        $errors[] = 'Please enter your ' . $key . ' between 1 and 255 characters.';
+      }
+      $state[$key] = mysqli_real_escape_string($db, $value);
+    }
+
+    if (!has_valid_state_code($state['code'])) {
+      $errors[] = 'State code can only be two letters, both capitalized.';
+    }
 
     return $errors;
   }
@@ -142,7 +154,19 @@
   }
 
   function validate_territory($territory, $errors=array()) {
-    // TODO add validations
+    global $db;
+    foreach ($territory as $key => $value) {
+      if (is_blank($value)) {
+        $errors[] = 'Please enter your ' . $key . '.';
+      } elseif (!has_length($value, array(1, 255))) {
+        $errors[] = 'Please enter your ' . $key . ' between 1 and 255 characters.';
+      }
+      $territory[$key] = mysqli_real_escape_string($db, $value);
+    }
+
+    if (!has_valid_name_format($territory['name'])) {
+      $errors[] = 'Territory name can only letters, spaces, and symbols: - , . \'';
+    }
 
     return $errors;
   }
@@ -244,8 +268,31 @@
   }
 
   function validate_salesperson($salesperson, $errors=array()) {
-    // TODO add validations
+    global $db;
+    foreach ($salesperson as $key => $value) {
+      if (is_blank($value)) {
+        $errors[] = 'Please enter your ' . $key . '.';
+      } elseif (!has_length($value, array(1, 255))) {
+        $errors[] = 'Please enter your ' . $key . ' between 1 and 255 characters.';
+      }
+      $salesperson[$key] = mysqli_real_escape_string($db, $value);
+    }
 
+    if (!has_valid_name_format($salesperson['first_name'])) {
+      $errors[] = 'First name can only letters, spaces, and symbols: - , . \'';
+    }
+
+    if (!has_valid_name_format($salesperson['last_name'])) {
+      $errors[] = 'Last name can only letters, spaces, and symbols: - , . \'';
+    }
+
+    if (!has_valid_phone_format($salesperson['phone'])) {
+      $errors[] = 'Phone can only numbers, spaces, and symbols: - ( )';
+    }
+
+    if (!has_valid_email_format($salesperson['email'])) {
+      $errors[] = 'Please enter a valid email. Email must have @ symbol and can only letters and symbols: - @ _ .';
+    }
     return $errors;
   }
 

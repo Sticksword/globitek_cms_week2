@@ -32,17 +32,17 @@ if(is_post_request()) {
 <div id="main-content">
   <a href="../states/show.php?id=<?php echo $territory['state_id'] ?>">Back to State Details</a><br />
 
-  <h1>Edit Territory: <?php echo $territory['name']; ?></h1>
+  <h1>Edit Territory: <?php echo h($territory['name']); ?></h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="edit.php?id=<?php echo $territory['id']; ?>" method="post">
+  <form action="edit.php?id=<?php echo h($territory['id']); ?>" method="post">
     Name:<br />
-    <input type="text" name="name" value="<?php echo $territory['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($territory['name']); ?>" /><br />
     State ID:<br />
-    <input type="text" name="state_id" value="<?php echo $territory['state_id']; ?>" /><br />
+    <input type="text" name="state_id" value="<?php echo h($territory['state_id']); ?>" /><br />
     Position:<br />
-    <input type="text" name="position" value="<?php echo $territory['position']; ?>" /><br />
+    <input type="text" name="position" value="<?php echo h($territory['position']); ?>" /><br />
 
     <br />
     <input type="submit" name="submit" value="Update"  />
