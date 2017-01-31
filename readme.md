@@ -36,7 +36,7 @@ The following **required** functionality is completed:
   * [X]  Required: Validate that usernames contain only the whitelisted characters.
   * [X]  Required: Validate that phone numbers contain only the whitelisted characters.
   * [X]  Required: Validate that email addresses contain only whitelisted characters.
-  * []  Required: Add *at least 5* other validations of your choosing.
+  * [?]  Required: Add *at least 5* other validations of your choosing. (I think there's 5)
 
 8\. [X]  Required: Sanitization
   * [X]  Required: All input and dynamic output should be sanitized.
@@ -44,12 +44,12 @@ The following **required** functionality is completed:
   * [X]  Required: Sanitize dynamic data for HTML
   * [X]  Required: Sanitize dynamic data for SQL
 
-9\. [ ]  Required: Penetration Testing
-  * [ ]  Required: Verify form inputs are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify form inputs are not vulnerable to XSS attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to XSS attacks.
-  * [ ]  Required: Listed other bugs or security vulnerabilities
+9\. [X]  Required: Penetration Testing
+  * [X]  Required: Verify form inputs are not vulnerable to SQLI attacks.
+  * [X]  Required: Verify query strings are not vulnerable to SQLI attacks.
+  * [X]  Required: Verify form inputs are not vulnerable to XSS attacks.
+  * [X]  Required: Verify query strings are not vulnerable to XSS attacks.
+  * [?]  Required: Listed other bugs or security vulnerabilities (I'm making a repo instead of notable tl;dr security stuff)
 
 
 The following advanced user stories are optional:
