@@ -1,6 +1,6 @@
 # Project 2 - Input/Output Sanitization
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -49,14 +49,14 @@ The following **required** functionality is completed:
   * [X]  Required: Verify query strings are not vulnerable to SQLI attacks.
   * [X]  Required: Verify form inputs are not vulnerable to XSS attacks.
   * [X]  Required: Verify query strings are not vulnerable to XSS attacks.
-  * [?]  Required: Listed other bugs or security vulnerabilities (I'm making a repo instead of notable tl;dr security stuff)
+  * [?]  Required: Listed other bugs or security vulnerabilities (side note: I'm making a separate repo of notable tl;dr security stuff)
 
 
 The following advanced user stories are optional:
 
 - [ ]  Bonus: On "public/staff/territories/show.php", display the name of the state.
 
-- [ ]  Bonus: Validate the uniqueness of `users.username`.
+- [X]  Bonus: Validate the uniqueness of `users.username`.
 
 - [ ]  Bonus: Add a page for "public/staff/users/delete.php".
 
@@ -64,6 +64,7 @@ The following advanced user stories are optional:
 
 - [ ]  Advanced: Nest the CMS for states inside of the Staff CMS for countries
 
+Sorry I have been particularly busy. I do however have an understanding of how to do the bonus but implmentation wise, I only did the validation checks to see if it works.
 
 ## Video Walkthrough
 
